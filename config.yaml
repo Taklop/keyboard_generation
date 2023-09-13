@@ -8,8 +8,42 @@ units:
 points:
     zones:
         matrix:
+            mirror: &mirror
+                ref: matrix_deep_inner_num
+                distance: 4kx
             columns:
-                outer:
+                far_pinky_left:
+                    key.asym: source
+                    rows:
+                        num:
+                            shift: [0.25kx, 0]
+                        top:
+                            width: 1.5kx - 1
+                            shift: [0.125kx, 0]
+                        home:
+                            width: 1.75kx - 1
+                        bottom:
+                            width: 1.75kx - 1
+                            shift: [-0.25kx, 0]
+                        mod:
+                            width: 1.25kx - 1
+                            shift: [-0.125kx]
+                far_pinky_right:
+                    key:
+                        asym: clone
+                        spread: 0
+                    rows:
+                        num:
+                            shift: [0.25kx, 0]
+                        top:
+                            width: 1.5kx - 1
+                            shift: [-0.25kx, 0]
+                        home:
+                            shift: [0.375kx, 0]
+                        bottom:
+                            width: 1.75kx - 1
+                            shift: [-0.375kx, 0]
+                        mod:
                 pinky:
                     key:
                         stagger: 1.2
@@ -31,8 +65,9 @@ points:
                 deep_inner:
                     rows.mod.skip: true
                     rows.bottom.skip: true
+                    rows.home.skip: true
                     key:
-                        stagger: -1.2
+                        stagger: -4
             rows:
                 mod:
                 bottom:
@@ -40,11 +75,14 @@ points:
                 top:
                 num:
         thumb_bottom:
+            mirror: &mirror
+                ref: matrix_deep_inner_num
+                distance: 4kx
             key:
                 spread: kx
             anchor:
                 ref: matrix_deep_inner_mod
-                shift: [-0.6kx, -0.6ky]
+                shift: [-0.6kx, -0.3ky]
                 rotate: -20
             columns:
                 close.key:
@@ -52,6 +90,9 @@ points:
                 further.key:
                     spread: kx + (0.5kx / 2)
         thumb_top:
+            mirror: &mirror
+                ref: matrix_deep_inner_num
+                distance: 4kx
             anchor:
                 ref: thumb_bottom_close
                 shift: [0.5kx, ky]
